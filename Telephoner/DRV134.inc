@@ -1,51 +1,50 @@
-* DRV134
-*****************************************************************************
-* (C) Copyright 2011 Texas Instruments Incorporated. All rights reserved.                                            
-*****************************************************************************
-** This model is designed as an aid for customers of Texas Instruments.
-** TI and its licensors and suppliers make no warranties, either expressed
-** or implied, with respect to this model, including the warranties of 
-** merchantability or fitness for a particular purpose.  The model is
-** provided solely on an "as is" basis.  The entire risk as to its quality
-** and performance is with the customer.
-*****************************************************************************
 *
-* This model is subject to change without notice. Texas Instruments
-* Incorporated is not responsible for updating this model.
+
 *
-*****************************************************************************
+
+*  ------------------------------------------------------------------------ 
+
+* |  NOTICE: THE INFORMATION PROVIDED HEREIN IS BELIEVED TO BE RELIABLE;   |
+
+* |  HOWEVER; BURR-BROWN ASSUMES NO RESPONSIBILITY FOR INACCURACIES OR     |
+
+* |  OMISSIONS.  BURR-BROWN ASSUMES NO RESPONSIBILITY FOR THE USE OF THIS  |
+
+* |  INFORMATION, AND ALL USE OF SUCH INFORMATION SHALL BE ENTIRELY AT     |
+
+* |  THE USER'S OWN RISK.  NO PATENT RIGHTS OR LICENSES TO ANY OF THE      |
+
+* |  CIRCUITS DESCRIBED HEREIN ARE IMPLIED OR GRANTED TO ANY THIRD PARTY.  |
+
+* |  BURR-BROWN DOES NOT AUTHORIZE OR WARRANT ANY BURR-BROWN PRODUCT FOR   |
+
+* |  USE IN LIFE-SUPPORT DEVICES AND/OR SYSTEMS.                           |
+
+*  ------------------------------------------------------------------------ 
+
 *
-** Released by: Analog eLab Design Center, Texas Instruments Inc.
-* Part: DRV134
-* Date: 08JUL2011
-* Model Type: ALL IN ONE
-* Simulator: PSPICE
-* Simulator Version: 16.0.0.p001
-* EVM Order Number: N/A
-* EVM Users Guide: N/A
-* Datasheet: SBOS094A – JANUARY 1998 – REVISED APRIL 2007
+
 *
-* Model Version: 1.0
+
 *
-*****************************************************************************
+* DRV134 = THREE OP1 OPERATIONAL AMPLIFIERS + PRECISION RESISTOR NETWORK
+* REV A CREATED BY KEVIN HUKINS ON 10/15/98 AT 12:00
+* REV B CREATED BY NEIL ALBAUGH 16 FEB 1999. CHANGED NAME FROM DRV134M TO DRV134.
 *
-* Updates:
 *
-* Version 1.0 : 
-* Release to Web
 *
-*****************************************************************************
-* DRV134 SUB-CIRCUIT CONNECTIONS:
-*		-VO
-*		|  -SENSE
-*		|  |  GND
-*		|  |  |  VIN
-*		|  |  |  |  -V
-*		|  |  |  |  |  V+  
-*		|  |  |  |  |  |  +SENSE
-*		|  |  |  |  |  |  |  +VO
-*		|  |  |  |  |  |  |  |
-.SUBCKT DRV134	1  2  3  4  5  6  7  8
+***** DRV134 SUB-CIRCUIT
+* CONNECTIONS:
+*				-VO
+*				|  -SENSE
+*				|  |  GND
+*				|  |  |  VIN
+*				|  |  |  |  -V
+*				|  |  |  |  |  V+  
+*				|  |  |  |  |  |  +SENSE
+*				|  |  |  |  |  |  |  +VO
+*				|  |  |  |  |  |  |  |
+.SUBCKT DRV134		1  2  3  4  5  6  7  8
 XA1      21  22  6   5   23  OP1
 DC7B     5   7    SIMPLED 1
 DC7A     7   6    SIMPLED 1
@@ -131,6 +130,6 @@ DP       4   3    SIMPLED 1
 .MODEL SIMPLED D RS=1
 .MODEL SIMPLEQ NPN RB=1 RC=1 RE=1 KF=.08F
 
-*XD1      VON VON GD  VIN VN  VP  VOP VOP DRV134
+XD1      VON VON GD  VIN VN  VP  VOP VOP DRV134
 .END
-*.ENDS DRV134
+.ENDS DRV134
